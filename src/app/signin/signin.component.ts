@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-
+import * as $ from 'jquery';
 @Component({
   selector: 'signin',
   templateUrl: './signin.component.html',
@@ -16,15 +16,11 @@ export class SigninComponent {
   if (this.ok_user==true &&this.ok_phone && this.ok_psd && this.ok_psdex && this.ok_mes )
     {  alert("注册成功");
     } 
-    alert("注册成功");
-       
+  alert("注册成功");
   }
 
   examine_user():void{
-   var user_text=document.getElementById("user_text");
-   var value=user_text.getAttribute("value");
-   //alert(value);
-  
+   var value=document.getElementById("user_text").value;
    var num_word = /[0-9a-z]/i; //true,说明有英文字母或数字
    if (value.length>=3 && value.length<=10 && num_word.test(value))
      {this.ok_user=true;

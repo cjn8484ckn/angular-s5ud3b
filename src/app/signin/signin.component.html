@@ -3,9 +3,9 @@
 <body>
   <div id="user" class="ax_default _形状" >
     <div id="user_div" class=""></div>
-    <input id="user_text" ng-model="data.user_text"  (change)="changeValue()" value="" class="text " placeholder="昵称">
+    <input id="user_text" ng-model="data.user_text"  (blur)="examine_user()" class="text " placeholder="昵称">
   </div>
-      <p id="user_warning" (click)="examine_user()" >
+      <p id="user_warning"  >
     <font id="warning1" size="0.5" color="red">您输入的用户名不符合格式，长度为3~10位，并且仅包含数字和字母。</font>
   </p>
   <div id="psd" class="ax_default _形状">
