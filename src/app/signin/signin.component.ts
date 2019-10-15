@@ -12,54 +12,77 @@ export class SigninComponent {
   ok_psdex=false;
   ok_phone=false;
   ok_mes=false;
-  click_register(): void {
-  if (this.ok_user==true &&this.ok_phone && this.ok_psd && this.ok_psdex && this.ok_mes )
-    {  alert("注册成功");
-    } 
-  alert("注册成功");
+  initialise(){
+     this.ok_user=false;
+    this.ok_psd=false;
+    this.ok_psdex=false;
+    this.ok_phone=false;
+    this.ok_mes=false;
   }
-
-  examine_user():void{
+  clear_error(){
+     if (this.ok_user==false)  {document.getElementById("user_text").value=""};
+     if (this.ok_psd==false)  {document.getElementById("psd_text").value=""};
+     if (this.ok_psdex==false)  {document.getElementById("psdex_text").value=""};
+  }
+  datasetin(){
+    var Forappending=8;
+    var target=".data_set/data.t";
+    var fso = new ActiveXObject("Scripting.FileSystemObject");
+    var begin_write = fso.OpenTextFile(target,Forappending,true);
+    begin_write("123");
+  }
+  click_register(): void {
+  if (this.examine_user()&& this.examine_psd() && this.examine_psdex()  )
+    {  alert("注册成功");
+       this.datasetin();
+    } 
+  else {alert("注册失败");
+        this.clear_error();
+       }
+      this.initialise();
+  }
+  examine_user():boolean{
    var value=document.getElementById("user_text").value;
    var num_word = /[0-9a-z]/i; //true,说明有英文字母或数字
    if (value.length>=3 && value.length<=10 && num_word.test(value))
      {this.ok_user=true;
       document.getElementById("user_warning").hidden=true;
+      return true;
      }
    else 
      {
       document.getElementById("user_warning").hidden=false;
+      return false;
      }
   }
-  examine_psd():void{
-   var psd_text=document.getElementById("psd_text");
-   var value=psd_text.getAttribute("value");
-   //alert(value);
+  examine_psd():boolean{
+   var value=document.getElementById("psd_text").value;
    var num_word = /[0-9a-z]/i; //true,说明有英文字母或数字
    if (value.length>=6 && value.length<=18 && num_word.test(value))
      {this.ok_psd=true;
       document.getElementById("psd_warning").hidden=true;
+      return true;
      }
    else 
      {
       document.getElementById("psd_warning").hidden=false;
+      return false;
      }
      
   }
-  examine_psdex():void{
-    var psdex_text=document.getElementById("psdex_text");
-    var psd_text=document.getElementById("psd_text");
-   var value1=psdex_text.getAttribute("value");
-   var value2=psd_text.getAttribute("value");
-   //alert(value);
+  examine_psdex():boolean{
+    var value1=document.getElementById("psdex_text").value;
+    var value2=document.getElementById("psd_text").value;
    var num_word = /[0-9a-z]/i; //true,说明有英文字母或数字
    if (value1==value2)
      {this.ok_psdex=true;
       document.getElementById("psdex_warning").hidden=true;
+      return true;
      }
    else 
      {
       document.getElementById("psdex_warning").hidden=false;
+      return false;
      }
   }
   examine_phone():void{
