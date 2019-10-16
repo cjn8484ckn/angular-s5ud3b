@@ -8,6 +8,16 @@ body{
     font-size:20px;
    
 }
+#warning_user{
+  position: absolute;
+  left:430px;
+  top:33px;
+}
+#warning_psd{
+  position: absolute;
+  left:430px;
+  top:87px
+}
 #divcss5{ 
     
     top:10px;

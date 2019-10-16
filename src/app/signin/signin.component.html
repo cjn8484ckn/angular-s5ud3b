@@ -1,5 +1,5 @@
 <!-- Components info: https://webdev.dartlang.org/components -->
-<body>
+<body (load)="initialise()">
 <!-- 左侧图像 -->
       
         <img id="pic_img" class="img " src="1.jpg"/>
@@ -11,28 +11,28 @@
 <!--昵称-->      
 
       <input id="user_text" class="inputStyles" type="text" ng-model="data.user_text"  (blur)="examine_user()" placeholder="昵称">
-        <p id="user_warning" >
+        <p id="user_warning" hidden="true" >
       <font id="warning1" size="0.5" color="red">您输入的用户名不符合格式，长度为3~10位，并且仅包含数字和字母。</font>
     </p>
 <!--密码-->
  
       <input id="psd_text" class="inputStyles" ng_model="data.psd_text" (blur)="examine_psd()"  placeholder="密码">
 
-     <p id="psd_warning">
+     <p id="psd_warning"  hidden="true">
       <font id="warning2" size="0.5" color="red">您输入的密码不符合格式，长度为6~18位，需包含数字，字母和特殊符号。</font>
     </p>
 <!--确认密码-->
     <input id="psdex_text"  class="inputStyles" (blur)="examine_psdex()" placeholder="确认密码">
  
-     <p id="psdex_warning">
-         <font id="warning5" size="0.5" color="red">确认密码与密码不相符</font>
+     <p id="psdex_warning"  hidden="true">
+         <font id="warning5" size="0.5" color="red" >确认密码与密码不相符</font>
     </p>
       
     <!-- 邮箱验证 -->
     <
         <input id="email_text" class="inputStyles " (blur)="examine_email()"  placeholder="邮箱地址">
 
-     <p id="email_warning" >
+     <p id="email_warning"  hidden="true">
       <font id="warning3" size="0.5" color="red">您输入的邮箱错误</font>
     </p>
     <!-- 验证码 -->
@@ -41,8 +41,8 @@
      <!-- 发送验证码 -->
     <input type="button" id="send_text"  value="发送验证码">
      
-      <p id="mes_warning">
-      <font id="warning4" size="0.5" color="red">您输入的验证码错误</font>
+      <p id="mes_warning"  hidden="true">
+      <font id="warning4" size="0.5" color="red" >您输入的验证码错误</font>
     </p>  
   <!-- 提交 -->
    <input type="button" id="regist_text"  (click)="click_register()" value="立即注册">   

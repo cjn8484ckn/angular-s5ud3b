@@ -19,6 +19,10 @@ export class SigninComponent {
     this.ok_psdex=false;
     this.ok_email=false;
     this.ok_mes=false;
+    document.getElementById("user_warning").hidden=true;
+    document.getElementById("psd_warning").hidden=true;
+    document.getElementById("psdex_warning").hidden=true;
+     document.getElementById("email_warning").hidden=true;
   }
   clear_error(){
      if (this.ok_user==false)  {document.getElementById("user_text").value=""};
