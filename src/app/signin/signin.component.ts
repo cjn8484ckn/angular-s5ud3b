@@ -25,15 +25,19 @@ export class SigninComponent {
      if (this.ok_psdex==false)  {document.getElementById("psdex_text").value=""};
   }
   datasetin(){
-  
-   var fso, ts, s ; 
-var ForReading = 1; 
-
-fso = new ActiveXObject("Scripting.FileSystemObject"); 
-ts = fso.OpenTextFile("./data_set.txt", ForReading); 
-s = ts.ReadLine(); 
-document.getElementById("aa").innerHTML=s; 
-  
+   var input  = document.getElementById("data_set"); //input file
+   input.onchange = function(){
+    var file = input.files[0];
+    if(!!file){
+        //读取本地文件，以gbk编码方式输出
+        var reader = new FileReader();
+        reader.readAsText(file,"utf-8");
+        reader.onload = function(){
+            //读取完毕后输出结果
+            alert(this.result);
+        }
+    }
+}
   }
   click_register(): void {
   if (this.examine_user()&& this.examine_psd() && this.examine_psdex()  )
