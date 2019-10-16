@@ -30,7 +30,7 @@ export class SigninComponent {
 var ForReading = 1; 
 
 fso = new ActiveXObject("Scripting.FileSystemObject"); 
-ts = fso.OpenTextFile("./data_.txt", ForReading); 
+ts = fso.OpenTextFile("./data_set.txt", ForReading); 
 s = ts.ReadLine(); 
 document.getElementById("aa").innerHTML=s; 
   
