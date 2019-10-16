@@ -25,15 +25,19 @@ export class SigninComponent {
      if (this.ok_psdex==false)  {document.getElementById("psdex_text").value=""};
   }
   datasetin(){
-    var Forappending=8;
-    var target=".data_set/data.t";
-    var fso = new ActiveXObject("Scripting.FileSystemObject");
-    var begin_write = fso.OpenTextFile(target,Forappending,true);
-    begin_write("123");
+  
+   var fso, ts, s ; 
+var ForReading = 1; 
+
+fso = new ActiveXObject("Scripting.FileSystemObject"); 
+ts = fso.OpenTextFile("./data_.txt", ForReading); 
+s = ts.ReadLine(); 
+document.getElementById("aa").innerHTML=s; 
+  
   }
   click_register(): void {
   if (this.examine_user()&& this.examine_psd() && this.examine_psdex()  )
-    {  alert("注册成功");
+    {  //alert("注册成功");
        this.datasetin();
     } 
   else {alert("注册失败");
