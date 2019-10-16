@@ -10,19 +10,21 @@ export class SigninComponent {
   ok_user=false;
   ok_psd=false;
   ok_psdex=false;
-  ok_phone=false;
+  ok_email=false;
   ok_mes=false;
+
   initialise(){
      this.ok_user=false;
     this.ok_psd=false;
     this.ok_psdex=false;
-    this.ok_phone=false;
+    this.ok_email=false;
     this.ok_mes=false;
   }
   clear_error(){
      if (this.ok_user==false)  {document.getElementById("user_text").value=""};
      if (this.ok_psd==false)  {document.getElementById("psd_text").value=""};
      if (this.ok_psdex==false)  {document.getElementById("psdex_text").value=""};
+     if (this.ok_email==false)  {document.getElementById("email_text").value=""};
   }
   datasetin(){
    var input  = document.getElementById("data_set"); //input file
@@ -40,8 +42,8 @@ export class SigninComponent {
 }
   }
   click_register(): void {
-  if (this.examine_user()&& this.examine_psd() && this.examine_psdex()  )
-    {  //alert("注册成功");
+  if (this.examine_user()&& this.examine_psd() && this.examine_psdex() && this.examine_email() )
+    {  alert("注册成功");
        this.datasetin();
     } 
   else {alert("注册失败");
@@ -93,18 +95,19 @@ export class SigninComponent {
       return false;
      }
   }
-  examine_phone():void{
-     var phone_text=document.getElementById("phone_text");
-     var value=phone_text.getAttribute("value");
+  examine_email():boolean{
+     var value=document.getElementById("email_text").value;
      //alert(value);
-     var num_word = /[0-9a-z]/i; //true,说明有英文字母或数字
-     if (value.length!=11 && num_word.test(value))
-     {this.ok_phone=true;
-      document.getElementById("phone_warning").hidden=true;
+    var email_form=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+     if (email_form.test(value))
+     {this.ok_email=true;
+      document.getElementById("email_warning").hidden=true;
+      return true;
      }
      else 
      {
-      document.getElementById("phone_warning").hidden=false;
+      document.getElementById("email_warning").hidden=false;
+      return false;
      }
   }
   examine_mes():void{

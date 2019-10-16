@@ -1,71 +1,54 @@
 <!-- Components info: https://webdev.dartlang.org/components -->
-
 <body>
-  <div id="user" class="ax_default _形状" >
-    <div id="user_div" class=""></div>
-    <input id="user_text" ng-model="data.user_text"  (blur)="examine_user()" class="text " placeholder="昵称">
-  </div>
-      <p id="user_warning" >
-    <font id="warning1" size="0.5" color="red">您输入的用户名不符合格式，长度为3~10位，并且仅包含数字和字母。</font>
-  </p>
-  <div id="psd" class="ax_default _形状">
-    <div id="psd_div" class=""></div>
-    <input id="psd_text" ng_model="data.psd_text" (blur)="examine_psd()" class="text " placeholder="密码">
-  </div>
-   <p id="psd_warning">
-    <font id="warning2" size="0.5" color="red">您输入的密码不符合格式，长度为6~18位，需包含数字，字母和特殊符号。</font>
-  </p>
-  <!-- Unnamed (矩形) -->
-  <div id="phone" class="ax_default _形状">
-    <div id="phone_div" class=""></div>
-      <input id="phone_text" class="text " (blur)="examine_phone()"  placeholder="手机号码">
-  </div>
-   <p id="phone_warning" >
-    <font id="warning3" size="0.5" color="red">输入的手机号码错误</font>
-  </p>
-  <!-- Unnamed (矩形) -->
-  <div id="mes" class="ax_default _形状">
-    <div id="mes_div" class=""></div>
-      <input id="mes_text" class="text " placeholder="短信验证码">
-  </div>
-   <p id="mes_warning">
-    <font id="warning4" size="0.5" color="red">您输入的验证码错误</font>
-  </p>
-  <!-- Unnamed (矩形) -->
-  <div id="psdex" class="ax_default _形状">
-    <div id="psdex_div" class=""></div>
-      <input id="psdex_text" class="text " (blur)="examine_psdex()" placeholder="确认密码">
-  </div>
-   <p id="psdex_warning">
-       <font id="warning5" size="0.5" color="red">确认密码与密码不相符</font>
-  </p>
-    <!-- Unnamed (矩形) -->
-    <div id="tit" class="ax_default _标题_1">
-      <div id="tit_div" class=""></div>
-      <div id="tit_text" class="text ">
-        <p><span style="font-family:'Arial Negreta', 'Arial Normal', 'Arial';font-weight:700;">欢迎注册慕慧教育</span></p>
-      </div>
-    </div>
+<!-- 左侧图像 -->
+      
+        <img id="pic_img" class="img " src="1.jpg"/>
 
-    <!-- Unnamed (图像) -->
-    <div id="pic" class="ax_default _图像">
-      <img id="pic_img" class="img " src="u17.jpg"/>
-      <div id="pic_text" class="text " style="display:none; visibility: hidden">
-        <p></p>
-      </div>
-    </div>
+<!-- 水印标签 -->
+      
+        <p id="tit"><span id="tit_text" >欢迎注册<br>慕慧教育</span></p>
+<form>
+<!--昵称-->      
 
-    <!-- Unnamed (矩形) -->
-    <div id="send" class="ax_default button">
-      <div id="send_div" class=""></div>
-      <input type="button" id="send_text" class="text " value="发送验证码">
-    </div>
+      <input id="user_text" class="inputStyles" type="text" ng-model="data.user_text"  (blur)="examine_user()" placeholder="昵称">
+        <p id="user_warning" >
+      <font id="warning1" size="0.5" color="red">您输入的用户名不符合格式，长度为3~10位，并且仅包含数字和字母。</font>
+    </p>
+<!--密码-->
+ 
+      <input id="psd_text" class="inputStyles" ng_model="data.psd_text" (blur)="examine_psd()"  placeholder="密码">
 
-    <!-- Unnamed (矩形) -->
-    <div id="regist" class="ax_default link_button">
-      <div id="regist_div" class=""></div>
-      <input type="button" id="regist_text" class="text " (click)="click_register()" value="立即注册">
-    </div>
-    <div id='a'></div>
-  <input type='file' id='data_set' >
-</body>
+     <p id="psd_warning">
+      <font id="warning2" size="0.5" color="red">您输入的密码不符合格式，长度为6~18位，需包含数字，字母和特殊符号。</font>
+    </p>
+<!--确认密码-->
+    <input id="psdex_text"  class="inputStyles" (blur)="examine_psdex()" placeholder="确认密码">
+ 
+     <p id="psdex_warning">
+         <font id="warning5" size="0.5" color="red">确认密码与密码不相符</font>
+    </p>
+      
+    <!-- 邮箱验证 -->
+    <
+        <input id="email_text" class="inputStyles " (blur)="examine_email()"  placeholder="邮箱地址">
+
+     <p id="email_warning" >
+      <font id="warning3" size="0.5" color="red">您输入的邮箱错误</font>
+    </p>
+    <!-- 验证码 -->
+    
+        <input id="mes_text"  placeholder="邮箱验证码"> 
+     <!-- 发送验证码 -->
+    <input type="button" id="send_text"  value="发送验证码">
+     
+      <p id="mes_warning">
+      <font id="warning4" size="0.5" color="red">您输入的验证码错误</font>
+    </p>  
+  <!-- 提交 -->
+   <input type="button" id="regist_text"  (click)="click_register()" value="立即注册">   
+</form>
+  </body>
+
+
+
+
